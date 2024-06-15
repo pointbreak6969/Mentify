@@ -3,8 +3,12 @@ import { IoMenu } from "react-icons/io5";
 import { IoIosCloseCircle } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import "../../styles/navbar.css";
+import useClickAway from "../../utils/useClickAway"
 const Navbar = () => {
   const [activeSidebar, setActiveSidebar] = useState(false);
+  const ref = useClickAway(() => {
+    setActiveSidebar(false);
+  });
   return (
     <>
       <div className="mobile-navbar md:hidden ">
@@ -26,6 +30,7 @@ const Navbar = () => {
             </div>
 
             <div
+            ref={ref}
               className={
                 activeSidebar
                   ? " h-screen bg-white sidebar-dropdown flex gap-5   "
