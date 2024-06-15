@@ -1,21 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Nav = () => {
   return (
-    <div>
-      <div className="logo">
-        <img src="" alt="logo" />
-      </div>
-      <div className="flex">
-        <ul>
-          <li>Home</li>
-          <li>Resource Library</li>
-          <li>Professional Connection</li>
-          <li>Serenity Talks</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+    <div>Nav</div>
+  )
+}
 
-export default Nav;
+export default Nav
