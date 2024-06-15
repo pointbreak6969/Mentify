@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Hero.css"
-import Card from '../Card/Card'
+import Card from '../card/Card'
 const Hero = () => {
 console.log(Card)
   return (
