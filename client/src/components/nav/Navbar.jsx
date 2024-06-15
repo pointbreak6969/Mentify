@@ -92,16 +92,58 @@ const Navbar = () => {
           <img src={logo} alt="" className="w-20 xl:w-24 cursor-pointer " />
         </div>
         <div className="col-span-8 list-none flex justify-center items-center  ">
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">Home</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Library</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Professionals</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Conversations</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Contact Us</li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">
+            Home
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+            Library
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+            Professionals
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+            Conversations
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+            Contact Us
+          </li>
         </div>
-        <div className="col-span-2 flex justify-center items-center">
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Login</button>
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Signup</button>
-        </div>
+        {/* If user is logged in, show the logout button */}
+        {user ? (
+          <div className="col-span-2 flex justify-center items-center">
+            <div>
+               <p> {user.fullname || user.user.fullname}</p>
+            </div>
+            <div className="px-2">
+              <button
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                logout
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="col-span-2 flex justify-center items-center">
+            <button
+              className="px-2 text-md xl:px-4 xl:text-xl hover:underline"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </button>
+            <button
+              className="px-2 text-md xl:px-4 xl:text-xl hover:underline"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Signup
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
