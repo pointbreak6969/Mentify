@@ -1,0 +1,164 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .register-wrapper {
+    width: 80%;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    display: flex;
+    background-color: #949eff;
+  }
+  .register-left {
+    flex: 1;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px 0px 0px 30px;
+  }
+  .register-left-logo {
+    flex: 1;
+  }
+  .register-left-logo img {
+    max-height: 60px;
+  }
+  .register-left-text {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+  }
+  .register-left-text h3 {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .register-left-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+  }
+  .register-left-img img {
+   max-width: 100%;
+   height: auto;
+  }
+  
+  .register-right {
+    flex: 1.5;
+    background-color: #fff;
+    border-radius: 30px;
+  }
+  
+  .register-right-wrapper {
+    padding: 10% 10% 5% 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  .register-right-wrapper h2 {
+    /* margin-bottom: 5%; */
+    font-size: 2rem;
+  }
+  .input-field {
+    margin-top: 2% !important;
+  }
+  
+  .terms {
+    margin-top: 5%;
+  }
+  .terms a{
+    color: #110df0 !important;
+    text-decoration: underline !important;
+  }
+  .register-submit {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .register-submit button {
+    width: 100%;
+    padding: 2%;
+    background-color: #5352ec;
+    border-radius: 30px;
+    color: #fff;
+  }
+  .next-option{
+    margin-top: 5%;
+    position: relative;
+  }
+  .or{
+    border: 1px solid rgb(204, 202, 202);
+  }
+  .next-option span{
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    color: rgb(117, 115, 115);
+    top: -11px;
+    left: 50%;
+    padding: 0 15px;
+    transform: translateX(-50%);
+  }
+  .signup-options{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    gap: 5%;
+    font-size: 2rem;
+  }
+  
+  .already-account{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    text-decoration: underline;
+  }
+  .already-account span{
+    color:rgb(117, 115, 115) ;
+    cursor: pointer;
+  }
+  .already-account a{
+    color: #110df0 !important;
+    cursor: pointer;
+  }
+  .navigate{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 1.5rem;
+  }
+  
+  @media screen and (max-width: 768px){
+    .register-container{
+      height: auto;
+      padding: 5% 0;
+    }
+    .register-wrapper{
+      flex-direction: column;
+    }
+    .register-left-text{
+      margin-top: 3%;
+    }
+    .register-left-text h3{
+      font-size: 1.2rem;
+    }
+    .register-left-img{
+      flex: 1;
+    }
+    .register-left-img img{
+      max-width: 50%;
+    }
+    .next-option span{
+      padding: 0 0;
+    }
+  }
+  
