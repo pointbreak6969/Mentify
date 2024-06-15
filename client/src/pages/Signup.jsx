@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {validateEmail} from "../utils/validateEmail.js"
+import { useEffect, useState } from "react";
+import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/register.css";
 import logo from "../assets/logo.png";
 import student from "../assets/student.png";
@@ -16,7 +16,8 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import axios from "axios";
-
+import { AppContext } from "../context/context.jsx";
+import { useContext } from "react";
 const Signup = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -25,7 +26,7 @@ const Signup = () => {
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+  const [age, setAge] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -33,72 +34,64 @@ const Signup = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const {setUser} = useContext(AppContext)
 
   const IsFormValid = () => {
     return (
       validateEmail(registerEmail) &&
       registerPassword.length >= 8 &&
-      checkbox === true &&
-      registerPassword === registerConfirmPassword
+      checkbox === true
     );
+  };
+  const clearForm = () => {
+    setRegisterName("");
+    setRegisterEmail("");
+    setRegisterPassword("");
+    setAge("");
+    setCheckbox(false);
   };
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const registerData = {
-        fullName: registerName,
+        fullname: registerName,
         email: registerEmail,
+        age: age,
         password: registerPassword,
       };
-      // if (IsFormValid()) {
-      //   await fetch("http://localhost:5050/auth/userRegister", {
-      //     method: "POST",
-      //     credentials: "include",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(registerData),
-      //   }).then((response) => {
-      //     if (response.status === 200) {
-      //       return;
-      //     } else {
-      //       setErrorMessage("User Already Exists. Try Logging In");
-      //       console.log(errorMessage);
-      //     }
-      //   });
-      //   setRegisterName("");
-      //   setRegisterEmail("");
-      //   setRegisterPassword({
-      //     value: "",
-      //   });
-      //   setRegisterConfirmPassword({
-      //     value: "",
-      //   });
-      //   setCheckbox(false);
-      // } else {
-      //   setErrorMessage("Please Fill the Form Properly");
-      // }
+      
       if (IsFormValid()) {
-        const response = await axios.post(
-          "http://localhost:5050/api/user/register",
-          registerData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-          {withCredentials: true,}
-        );
-        console.log(response.data);
+        try {
+          const response = await axios.post(
+            "http://localhost:5000/api/v1/user/register",
+            registerData,
+            {
+              withCredentials: true,
+            }
+          );
+          
+          const data = response.data.message;
+          setUser(data)
+          
+          clearForm(); // Clear the form after successful registration
+          navigate("/");
+        } catch (error) {
+          console.log(error);
+        }
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error:", error);
     }
   };
+  
 
   return (
     <>
-      <FaArrowLeft className="cursor-pointer navigate " onClick={handleGoBack} />
+      <FaArrowLeft
+        className="cursor-pointer navigate "
+        onClick={handleGoBack}
+      />
       <div className="register-container">
         <div className="register-wrapper">
           <div className="register-left">
@@ -126,7 +119,6 @@ const Signup = () => {
               <h2>Create Account</h2>
               <TextField
                 required
-                id="standard-basic"
                 label="Full Name"
                 variant="standard"
                 className="input-field"
@@ -135,7 +127,6 @@ const Signup = () => {
               />
               <TextField
                 required
-                id="standard-basic"
                 label="Email"
                 variant="standard"
                 className="input-field"
@@ -143,6 +134,14 @@ const Signup = () => {
                 onChange={(e) => {
                   setRegisterEmail(e.target.value);
                 }}
+              />
+              <TextField
+                required
+                label="Age"
+                variant="standard"
+                className="input-field"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
               />
               <FormControl className="input-field" variant="standard">
                 <InputLabel htmlFor="standard-adornment-password" required>
@@ -168,29 +167,7 @@ const Signup = () => {
                   }
                 />
               </FormControl>
-              <FormControl className="input-field" variant="standard">
-                <InputLabel htmlFor="standard-adornment-password" required>
-                  Confirm Password
-                </InputLabel>
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  value={registerConfirmPassword}
-                  onChange={(e) => {
-                    setRegisterConfirmPassword(e.target.value);
-                  }}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
+
               <div className="terms">
                 <input
                   required

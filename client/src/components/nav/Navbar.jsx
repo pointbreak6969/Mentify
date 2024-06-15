@@ -3,27 +3,48 @@ import { IoMenu } from "react-icons/io5";
 import { IoIosCloseCircle } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import "../../styles/navbar.css";
-import useClickAway from "../../utils/useClickAway"
+import useClickAway from "../../utils/useClickAway";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/context";
+import { useContext } from "react";
+import axios from "axios";
 const Navbar = () => {
   const [activeSidebar, setActiveSidebar] = useState(false);
   const ref = useClickAway(() => {
     setActiveSidebar(false);
   });
   const navigate = useNavigate();
+  const { user, setUser } = useContext(AppContext);
+   const handleLogout = async ()=>{ 
+      try {
+        await axios.post("http://localhost:5000/api/v1/user/logout",{}, {
+          withCredentials: true,
+        })
+        setUser(null)
+      } catch (error) {
+        console.log("error while logging out", error)
+      }
+    }
   return (
     <>
       <div className="mobile-navbar md:hidden ">
         <div className="flex justify-between  p-2 ">
           <div>
-            <img src={logo} alt="image" className="w-20 cursor-pointer" onClick={()=>{
-              navigate("/")
-            }} />
+            <img
+              src={logo}
+              alt="image"
+              className="w-20 cursor-pointer"
+              onClick={() => {
+                navigate("/");
+              }}
+            />
           </div>
           <div className="sidebar">
             <div
               className={
-                activeSidebar ? "hidden" : "text-3xl font-bold cursor-pointer flex items-center"
+                activeSidebar
+                  ? "hidden"
+                  : "text-3xl font-bold cursor-pointer flex items-center"
               }
             >
               <IoMenu
@@ -34,7 +55,7 @@ const Navbar = () => {
             </div>
 
             <div
-            ref={ref}
+              ref={ref}
               className={
                 activeSidebar
                   ? " h-screen bg-white sidebar-dropdown flex gap-5   "
@@ -68,23 +89,61 @@ const Navbar = () => {
       </div>
       <div className="mobile-desktop hidden md:grid md:grid-cols-12 md:p-4 md:bg-cyan-700 md:text-white">
         <div className="col-span-2 flex items-center justify-center">
-          <img src={logo} alt=""  className="w-20 xl:w-24 cursor-pointer "/>
+          <img src={logo} alt="" className="w-20 xl:w-24 cursor-pointer " />
         </div>
         <div className="col-span-8 list-none flex justify-center items-center  ">
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">Home</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Library</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Professionals</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Conversations</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Contact Us</li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">
+            Home
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+            Library
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+            Professionals
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+            Conversations
+          </li>
+          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+            Contact Us
+          </li>
         </div>
-        <div className="col-span-2 flex justify-center items-center">
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline" onClick={()=>{
-            navigate("/login")
-          }}>Login</button>
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline" onClick={()=>{
-            navigate("/signup")
-          }}>Signup</button>
-        </div>
+        {/* If user is logged in, show the logout button */}
+        {user ? (
+          <div className="col-span-2 flex justify-center items-center">
+            <div>
+               <p> {user.fullname || user.user.fullname}</p>
+            </div>
+            <div className="px-2">
+              <button
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                logout
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="col-span-2 flex justify-center items-center">
+            <button
+              className="px-2 text-md xl:px-4 xl:text-xl hover:underline"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </button>
+            <button
+              className="px-2 text-md xl:px-4 xl:text-xl hover:underline"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Signup
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

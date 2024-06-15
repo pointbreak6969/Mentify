@@ -16,8 +16,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
-
+import { useContext } from "react";
+import { AppContext } from "../context/context.jsx";
+import axios from "axios";
 const Login = () => {
+  const {setUser} = useContext(AppContext)
     const navigate = useNavigate();
     const handleGoBack = () => {
       navigate(-1);
@@ -42,6 +45,13 @@ const Login = () => {
         loginPassword.isTouched
       );
     };
+    const clearForm = ()=>{
+      setLoginEmail("");
+      setLoginPassword({
+        value: "",
+        isTouched: false,
+      });
+    }
     const handelLoginSubmit = async (e) => {
       e.preventDefault();
     
@@ -50,23 +60,24 @@ const Login = () => {
           email: loginEmail,
           password: loginPassword.value,
         };
-        // await fetch("http://localhost:5050/auth/userLogin", {
-        //   method: "POST",
-        //   credentials: 'include',
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(loginData),
-        // });
-        if (IsFormValid()) {
-          setErrorMessage(false);
-          setLoginEmail("");
-          setLoginPassword({
-            value: "",
-            isTouched: false,
-          });
-        } else {
-          setErrorMessage(true);
+        if (IsFormValid()){
+          try {
+            const response = await axios.post(
+              "http://localhost:5000/api/v1/user/login",
+              loginData,
+              {
+                withCredentials: true,
+              }
+            );
+            
+            const data = response.data.message;
+            setUser(data)
+            
+            clearForm(); // Clear the form after successful login
+            navigate("/");
+          } catch (error) {
+            console.log(error);
+          }
         }
       } catch (error) {
         console.log(error);
