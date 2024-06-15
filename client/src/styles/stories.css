@@ -3,9 +3,10 @@
     gap: 50px;
     flex-direction: column;
     h1{
-        font-size: 40px;
+        font-size: 4rem;
         font-weight: bold;
         text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .card-wrapper{
         display: flex;
@@ -13,15 +14,18 @@
     .cards{
         padding: 15px;
         width: 300px;
-        background-color: #C4CFCF;
+        background-color: #b8cee7;
         .coma{
             font-size: 40px;
             font-weight: bold;
         }
         .story{
-            font-weight: bold;
+            font-style: italic;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        
         }
         .writer{
+            margin-top: 5px;
             font-weight: bold;
             font-size: 25px;
         }

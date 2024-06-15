@@ -8,6 +8,8 @@ const Heros = () => {
   return (
     <div className='heros'>
         <h1 className='heading'>Find Your Light, <br /> One At A Time</h1>
+        {/* <h1>You are stronger than you think.
+          You have gotten through every bad day in your life, and you are undefeated</h1> */}
         <div className="image1">
           <img src={smartphone1} alt="" />
         </div>

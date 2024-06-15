@@ -4,6 +4,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import "../../styles/navbar.css";
 import useClickAway from "../../utils/useClickAway"
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [activeSidebar, setActiveSidebar] = useState(false);
   const ref = useClickAway(() => {
@@ -67,15 +68,15 @@ const Navbar = () => {
           <img src={logo} alt=""  className="w-20 xl:w-24 cursor-pointer "/>
         </div>
         <div className="col-span-8 list-none flex justify-center items-center  ">
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">Home</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Library</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Professionals</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Conversations</li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Contact Us</li>
+          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">Home</li></Link>
+          <Link to={"/library"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Library</li></Link>
+          <Link to={"/professionals"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Professionals</li></Link>
+          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">Conversations</li></Link>
+          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Contact Us</li></Link>
         </div>
         <div className="col-span-2 flex justify-center items-center">
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Login</button>
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Signup</button>
+          <Link to={"/register"} className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Login</Link>
+          <Link to={"/signup"} className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Signup</Link>
         </div>
       </div>
     </>

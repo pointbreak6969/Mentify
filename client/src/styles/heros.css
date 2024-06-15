@@ -13,21 +13,21 @@
     .image1{
         position: absolute;
         top: 150px;
-        left: 10%;  
+        left: 2%;  
     }
     .image2{
         position: absolute;
         top: 150px;
-        left: 22%;
+        left: 14%;
     }
     .image3{
         position: absolute;
         top: 70px;
-        right: 10%;  
+        right: 5%;  
     }
     .image4{
         position: absolute;
         top: 100px;
-        right: 5%;  
+        right: 2%;  
     }
 }
