@@ -1,0 +1,33 @@
+.heros{
+    /* background-color: var(--bg-color); */
+    position: relative;
+    height: 90vh;
+    .heading{
+        font-size: 40px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        padding-top: 55px;
+        color: black;
+    }
+    .image1{
+        position: absolute;
+        top: 150px;
+        left: 10%;  
+    }
+    .image2{
+        position: absolute;
+        top: 150px;
+        left: 22%;
+    }
+    .image3{
+        position: absolute;
+        top: 70px;
+        right: 10%;  
+    }
+    .image4{
+        position: absolute;
+        top: 100px;
+        right: 5%;  
+    }
+}
