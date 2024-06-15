@@ -6,17 +6,17 @@ import Moon from "../../assets/Quotes/Moon.png"
 let Quote=[{
 image:Smile,
 heading:"Evereything Your Mind Needs",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ipsum modi libero, quidem voluptates dolor a hic expedita nemo! Corporis."
+paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
 
 },{
 image:Meditation,
 heading:"Have More Good Days",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ipsum modi libero, quidem voluptates dolor a hic expedita nemo! Corporis."
+paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
 },
 {
 image:Moon,
 heading:"Get THe Sleep Of Your Dreams",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ipsum modi libero, quidem voluptates dolor a hic expedita nemo! Corporis."
+paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
 }]
 const Quotes = () => {
   return (
@@ -32,6 +32,7 @@ const Quotes = () => {
                     <div className="heading">{item.heading}</div>
                     <div className="paragraph">{item.paragraph}</div>
                 </div>
+
             </div>
         )
         })
