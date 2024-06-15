@@ -1,0 +1,30 @@
+.stories{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .card-wrapper{
+        display: flex;
+        gap: 30px;
+    .cards{
+        padding: 15px;
+        width: 300px;
+        background-color: #C4CFCF;
+        .coma{
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .story{
+            font-weight: bold;
+        }
+        .writer{
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+}
+}
