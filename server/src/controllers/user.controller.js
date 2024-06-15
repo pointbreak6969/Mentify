@@ -2,16 +2,19 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
-import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
 
+import mongoose from "mongoose";
+  
 const registerUser = asyncHandler(async (req, res) => {
   const { fullname, email, password, age } = req.body;
-  if ([fullname, email, password, age].some((field) => field.trim() === "")) {
-    throw new ApiError(
-      400,
-      "Please provide all the required fields (fullname, email, password, age)"
-    );
+  if (
+    [fullname, email, password].some((field) => field.trim() === "")
+  ) {
+    throw new ApiError(400, "All fields are required");
+  }
+  if (!age){
+    throw new ApiError(400, "All fields are required")
+
   }
   const existingUser = await User.findOne({ email });
   if (existingUser) {
@@ -24,27 +27,10 @@ const registerUser = asyncHandler(async (req, res) => {
   if (!createdUser) {
     throw new ApiError(500, "Something went wrong while registering the user");
   }
-  return res
+    return res
     .status(201)
     .json(new ApiResponse(200, createdUser, "User registered Successfully"));
 });
-const generateAccessAndRefereshTokens = async (userId) => {
-  try {
-    const user = await User.findById(userId);
-    const accessToken = user.generateAccessToken();
-    const refreshToken = user.generateRefreshToken();
-
-    user.refreshToken = refreshToken;
-    await user.save({ validateBeforeSave: false });
-
-    return { accessToken, refreshToken };
-  } catch (error) {
-    throw new ApError(
-      500,
-      "Something went wrong while generating referesh and access token"
-    );
-  }
-};
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -59,15 +45,14 @@ const loginUser = asyncHandler(async (req, res) => {
   if (!isPasswordValid) {
     throw new ApiError(401, "Invalid user credentials");
   }
-
-  const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
-    user._id
-  );
-
+  
   const loggedInUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
 
+  const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
+    user._id
+  );
   const options = {
     httpOnly: true,
     secure: true,
@@ -102,3 +87,6 @@ const logoutUser = asyncHandler(async (req, res) => {
     }
   );
 });
+
+
+export { registerUser, logoutUser, loginUser }
