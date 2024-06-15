@@ -4,17 +4,21 @@ import { IoIosCloseCircle } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import "../../styles/navbar.css";
 import useClickAway from "../../utils/useClickAway"
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [activeSidebar, setActiveSidebar] = useState(false);
   const ref = useClickAway(() => {
     setActiveSidebar(false);
   });
+  const navigate = useNavigate();
   return (
     <>
       <div className="mobile-navbar md:hidden ">
         <div className="flex justify-between  p-2 ">
           <div>
-            <img src={logo} alt="image" className="w-20" />
+            <img src={logo} alt="image" className="w-20 cursor-pointer" onClick={()=>{
+              navigate("/")
+            }} />
           </div>
           <div className="sidebar">
             <div
@@ -74,8 +78,12 @@ const Navbar = () => {
           <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">Contact Us</li>
         </div>
         <div className="col-span-2 flex justify-center items-center">
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Login</button>
-          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline">Signup</button>
+          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline" onClick={()=>{
+            navigate("/login")
+          }}>Login</button>
+          <button className="px-2 text-md xl:px-4 xl:text-xl hover:underline" onClick={()=>{
+            navigate("/signup")
+          }}>Signup</button>
         </div>
       </div>
     </>
