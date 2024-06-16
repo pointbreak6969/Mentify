@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AppContext } from "../context/context.jsx";
 import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/register.css";
 import logo from "../assets/logo.png";
@@ -16,9 +17,9 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import axios from "axios";
-import { AppContext } from "../context/context.jsx";
-import { useContext } from "react";
+
 const Signup = () => {
+  const {setUser, setToken} = useContext(AppContext);
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
@@ -34,7 +35,7 @@ const Signup = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const {setUser} = useContext(AppContext)
+
 
   const IsFormValid = () => {
     return (
@@ -72,16 +73,17 @@ const Signup = () => {
           );
           
           const data = response.data.message;
-          setUser(data)
-          
+          console.log(data);
           clearForm(); // Clear the form after successful registration
           navigate("/");
         } catch (error) {
-          console.log(error);
+          console.log("Error while registering the user", error);
         }
       }
     } catch (error) {
+
       console.error("Error:", error);
+      setErrorMessage("All fields are required")
     }
   };
   

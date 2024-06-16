@@ -3,7 +3,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { ApiError } from "../utils/ApiError.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
-import mongoose, { isValidObjectId } from "mongoose";
+
 
 const uploadPost = asyncHandler(async (req, res) => {
   try {
@@ -12,7 +12,6 @@ const uploadPost = asyncHandler(async (req, res) => {
       throw new ApiError(404, "Please provide content for the post");
 
     let mediaLocalPath = req.file?.path
-    console.log(mediaLocalPath)
     let mediaFile = await uploadOnCloudinary(mediaLocalPath);
 
     let image = {};
@@ -39,5 +38,12 @@ const uploadPost = asyncHandler(async (req, res) => {
     throw new ApiError(500, "Internal server error");
   }
 });
+const getAllPost = asyncHandler(async (req, res)=>{
+const posts = await Post.find({});
+if (!posts){
+  throw new ApiError(404, "No post found")
+}
+return res.status(200).json(new ApiResponse(200, "All posts", posts))
+})
 
-export { uploadPost };
+export { uploadPost, getAllPost };
