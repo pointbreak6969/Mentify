@@ -128,8 +128,6 @@ const Posts = () => {
                 <form onSubmit={handlePostSubmission} className="mt-2">
                   <input
                     type="text"
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
                     name="comment"
                     placeholder="Add a comment"
                     className="border border-gray-300 rounded px-2 py-1 w-full"
