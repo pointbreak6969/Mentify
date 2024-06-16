@@ -21,6 +21,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/library" element={<Library/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/professional" element={<Prof/>}/>
+      <Route path="/posts" element={<Posts/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
     </Routes>
     {/* <Footer/>     */}
    </BrowserRouter>
