@@ -80,37 +80,40 @@ const Library = () => {
     title:"Small, consistent changes can have on an individual's life",
     image:video1,
     time:"10:20",
-    buttonMsg: "Click to watch"
+    buttonMsg: "Click to watch",
+    link:"https://www.youtube.com/watch?v=EjsTWJ7U1rk"
 },
 {
-  title:"Small, consistent changes can have on an individual's life",
+  title:"Embrace Sensitivity: Empower Your Mind",
   image:video2,
   time:"10:20",
   buttonMsg: "Click to watch",
+  link:"https://www.youtube.com/watch?v=r0lRm2J6drs"
 
 },
 {
-  title:"Small changes can have on an individual's life",
+  title:"Transform Your Mind with Kindness",
   image:video3,
   time:"10:20",
-buttonMsg: "Click to watch"
+buttonMsg: "Click to watch",
+link:"https://youtube.com/watch?v=xnstfM6RpWA"
 },
 {
-  title:"Small, consistent changes can have on an individual's life",
+  title:"Transform  Life, Overcome Mental Struggles",
   image:video4,
   time:"10:20",
   buttonMsg: "Click to watch"
 
 },
 {
-  title:"Small, consistent changes can have on an individual's life",
+  title:"Embrace sensitivity, nurture mental wellness",
   image:video5,
   time:"10:20",
   buttonMsg: "Click to watch"
 
 },
 {
-  title:"Small, consistent changes can have on an individual's life",
+  title:"Navigating chaos, finding peace within.",
   image:video6,
   time:"10:20",
   buttonMsg: "Click to watch"
@@ -124,7 +127,7 @@ buttonMsg: "Click to watch"
 
 },
 {
-  title:"Small, consistent changes can have on an individual's life",
+  title:"Transform  Life, Overcome Mental Struggles",
   image:video3,
   time:"10:20",
   buttonMsg: "Click to watch"
@@ -156,6 +159,7 @@ buttonMsg: "Click to watch"
             title={item.title}
             time={item.time}
             buttonMsg={item.buttonMsg}
+            link={item.link}
           />
         ))}
       </div>

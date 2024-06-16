@@ -107,7 +107,7 @@ const Navbar = () => {
           <Link to={"/posts"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
             Conversations
           </li></Link>
-          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+          <Link><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
             Chat With AI
           </li></Link>
         </div>

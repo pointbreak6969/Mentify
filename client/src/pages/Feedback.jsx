@@ -6,13 +6,33 @@ const Feedback = () => {
   const [posts, setPosts] = useState([
     {
       id: 1,
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      content: "Discovering Mentify has been transformative for me. The resources on mindfulness, gratitude, and self-care have empowered me to prioritize my mental well-being daily. The insights and tools provided have truly enhanced my journey towards greater emotional balance and resilience. Thank you, Mentify, for being a beacon of support and inspiration!",
     },
     {
       id: 2,
 
-      content: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+      content: "Mentify has had a profound impact on countless lives, including mine. By providing accessible resources and a supportive community focused on mental health, Mentify has empowered individuals to adopt mindfulness, gratitude, and self-care practices. These tools have not only enhanced daily happiness and resilience but have also fostered a deeper sense of emotional balance and well-being. Mentify is not just a website; it's a lifeline that equips us with the knowledge and support needed to navigate life's challenges with greater confidence and positivity.",
     },
+    {
+      id: 3,
+      content: "Mentify provides invaluable resources and a compassionate community dedicated to mental health. Through its emphasis on mindfulness, gratitude, and self-care, Mentify empowers individuals to cultivate daily happiness and resilience. It's a guiding light, fostering emotional balance and equipping us to face life's challenges with strength and positivity."
+    },
+    {
+      id: 4,
+      content: "Mentify is a supportive platform that has positively impacted countless lives, mine included. With accessible resources and a nurturing community focused on mental health, Mentify encourages mindfulness, gratitude, and self-care practices. These tools enhance daily well-being and emotional resilience, empowering individuals to navigate life with confidence and optimism."
+    },
+    {
+      id: 5,
+      content: "Mentify has transformed the lives of many through its accessible resources and supportive community. By promoting mindfulness, gratitude, and self-care, Mentify empowers individuals to enhance their happiness and resilience. It's more than a website; it's a lifeline that fosters emotional well-being and equips users to thrive."
+    },
+    {
+      id: 6,
+      content: "Mentify has been instrumental in improving countless lives, including mine. Through its accessible resources and supportive community focused on mental health, Mentify encourages the adoption of mindfulness, gratitude, and self-care practices. These strategies promote daily happiness, resilience, and emotional balance, empowering individuals to navigate life's challenges with strength and positivity."
+    },
+    {
+      id: 7,
+      content: "Mentify plays a crucial role in supporting mental health with its accessible resources and nurturing community. By fostering mindfulness, gratitude, and self-care practices, Mentify enhances daily well-being and resilience. It's a lifeline that empowers individuals to maintain emotional balance and navigate life's complexities with confidence and optimism."
+    }
   ]);
 
   const handleCreatePostClick = () => {

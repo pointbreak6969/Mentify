@@ -6,17 +6,17 @@ import Moon from "../../assets/Quotes/Moon.png"
 let Quote=[{
 image:Smile,
 heading:"Evereything Your Mind Needs",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
+paragraph:" Signifies a holistic approach to mental well-being, encompassing diverse stimuli, knowledge acquisition, emotional resilience, and creative fulfillment. It aims to nourish cognitive health through a balanced combination of learning, relaxation, and emotional stability."
 
 },{
 image:Meditation,
-heading:"Have More Good Days",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
+heading:"Enhancing Well-being through Mindfulness",
+paragraph:"Encourages maximizing positive experiences and well-being. It promotes strategies like mindfulness, gratitude, and self-care to enhance daily happiness and resilience. It's about fostering a mindset and lifestyle that prioritizes joy, peace, and emotional balance."
 },
 {
 image:Moon,
-heading:"Get THe Sleep Of Your Dreams",
-paragraph:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, totam nisi cupiditate quisquam deleniti qui est ab et aspernatur id minus quaerat quae sequi hic optio exercitationem debitis. Animi atque iusto ipsum ducimus explicabo dolores ea accusantium expedita, tempore cum."
+heading:"Get The Sleep Of Your Dreams",
+paragraph:"Emphasizes achieving optimal rest and rejuvenation. It advocates for practices like establishing a bedtime routine, creating a comfortable sleep environment, and prioritizing relaxation to enhance sleep quality and overall well-being."
 }]
 const Quotes = () => {
   return (

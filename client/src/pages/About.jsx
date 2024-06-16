@@ -11,10 +11,7 @@ function About() {
         <div className="wrapper">
           <h1 className="top_header">Our Mission</h1>
           <p className="top_para">
-            At Himalayen Sikchya, we are driven by a singular mission: to make
-            education accessible, engaging, and empowering for learners
-            worldwide. We believe in the transformative power of knowledge and
-            its ability to positively impact lives.
+          At Mentify, we are driven by a singular mission: to make mental health support accessible, engaging, and empowering for individuals worldwide. We believe in the transformative power of mental well-being and its ability to positively impact lives. Our goal is to provide a safe space where people can share their struggles, find relief, and build resilience. Through personalized tools, a supportive community, and professional guidance, we aim to help everyone achieve a healthier, happier mind.
           </p>
         </div>
         <div className="wrappers">
@@ -25,11 +22,7 @@ function About() {
       <div className="container1">
         <h1 className="heading2">Who are we?</h1>
         <p className="para2">
-          We are a passionate team of educators, designers, and tech enthusiasts
-          committed to revolutionizing the way people learn. Our diverse
-          backgrounds and experiences converge to create a dynamic and
-          innovative e-learning platform that goes beyond traditional
-          boundaries.
+          We are a passionate team dedicated to addressing social challenges, with a focus on mental health. Our diverse backgrounds in mental health, design, and technology unite to create Mentify, a platform aimed at providing relief from mental illness and promoting a healthy mindset. We are committed to making mental well-being accessible and empowering for everyone.
         </p>
       </div>
 
@@ -37,32 +30,20 @@ function About() {
         <h1 className="heading3">Our Story</h1>
         <div className="sub-container">
           <div className="wrap">
-            <img src={about1} alt="" className="image_about" />
+            <img src={about1} alt="" className="image_about my-10" style={{height:"500px"}} />
           </div>
           <div className="wraps">
-            <h1 className="heading4">Launch and Community Building</h1>
             <p className="para3">
-              Himalayan Sikchya was born out of a shared vision to democratize
-              education. Recognizing the evolving landscape of learning and the
-              need for flexible, accessible, and high-quality education, we
-              embarked on a journey to create a platform that empowers
-              individuals to achieve their academic and professional goals.
-            </p>
-            <p className="para4">
-              The idea was sparked during a late-night discussion among
-              educators frustrated with the limitations of traditional teaching
-              methods. Inspired by a shared commitment to make learning
-              accessible to all, the vision for{" "}
-              <span>Your E-Learning Platform Name</span> began to take
-              shape.Himalayan Sikchya officially launched, marking the beginning
-              of our commitment to empowering learners globally. As the
-              community grew, so did our dedication to fostering a supportive
-              environment where learners could connect, share insights, and
-              collaborate. Himalayan Sikchya officially launched, marking the
-              beginning of our commitment to empowering learners globally. As
-              the community grew, so did our dedication to fostering a
-              supportive environment where learners could connect, share
-              insights, and collaborate.
+            The inspiration behind Mentifly stems from a deep-seated concern for the mental health of people, especially teenagers, in developing countries like Nepal, where mental health is often not given the same importance as physical health. <br /><br />
+
+Meet Harke, a 19-year-old boy studying engineering. Harke was an average student in school, not excelling in sports, studies, or art. He is an introvert who struggles to share his feelings with others. His parents dreamt of seeing their son become an engineer. To fulfill his parents' dreams, he joined the science stream in +2 and then enrolled in an engineering college. However, in his first semester, he failed four subjects. Shocked by his low grades, Harke kept the news to himself. When his friends found out and mocked him, he fell into a deep depression. He felt trapped, unable to share his struggles with his parents for fear of disappointing them, and unable to confide in his friends without being ridiculed. He knew suicide wasn't an option, as it would devastate his parents, but this only deepened his depression. Every day, he hid his emotions and cried alone in a corner. <br /><br />
+
+With Harke's story in mind, our team sought to create a web application that helps teenagers improve their mental health. Mentifly allows them to share their depressed feelings and anxious thoughts with others who understand and are going through similar experiences. The platform also provides access to therapists, offering a safe space for teenagers to talk about issues they can't easily share with their parents or friends.
+
+
+
+
+
             </p>
           </div>
         </div>
@@ -72,62 +53,47 @@ function About() {
         <h1 className="main_heading">What Sets Us Apart</h1>
         <div className="main_container">
           <div className="main1 box">
-            <h1 className="mh1">Inclusive Learning Environment</h1>
+            <h1 className="mh1">Comprehensive Resource Library</h1>
             <p className="mp1">
-              We strive to create an inclusive and welcoming space for learners
-              of all backgrounds and abilities. Our courses are designed to
-              cater to diverse learning styles, ensuring that every individual
-              can thrive in their educational journey.
+            We provide a rich library of books and videos, offering valuable insights and practical strategies for managing mental health. Our resources are carefully curated to ensure that users have access to the most relevant and helpful information.
             </p>
           </div>
 
           <div className="main2 box">
-            <h1 className="mh1">Cutting-Edge Technology</h1>
+            <h1 className="mh1">Community- Approach</h1>
             <p className="mp1">
-              Embracing the latest advancements in technology, we leverage
-              cutting-edge tools and interactive features to enhance the
-              learning experience. From virtual classrooms to hands-on
-              simulations, we're at the forefront of educational technology.
+              
+ Mental wellness is not just about individual support; it's also about building connections. Our platform fosters a sense of community among users, encouraging anonymous sharing, collaboration, discussion, and the exchange of experiences and ideas.
             </p>
           </div>
 
           <div className="main3 box">
-            <h1 className="mh1">Expert Educators</h1>
+            <h1 className="mh1">Expert Professionals</h1>
             <p className="mp1">
-              Our team of educators consists of industry experts, scholars, and
-              professionals who are passionate about sharing their knowledge. We
-              handpick instructors who not only excel in their fields but also
-              have a genuine enthusiasm for teaching.
+            Our team consists of industry experts, therapists, and mental health professionals who are passionate about helping others. We handpick our professionals not only for their expertise but also for their genuine dedication to supporting mental well-being
             </p>
           </div>
 
           <div className="main4 box">
-            <h1 className="mh1">Community-Centric Approach</h1>
-            <p className="mp1">
-              Learning is not just about acquiring knowledge; it's also about
-              building connections. Our platform fosters a sense of community
-              among learners, encouraging collaboration, discussion, and the
-              exchange of ideas.
-            </p>
-          </div>
+  <h1 className="mh1">Empowerment through Self-Discovery</h1>
+  <p className="mp1">
+  Mentify harnesses the power of self-discovery to educate and empower individuals on their mental health journey. We promote self-exploration, mindfulness, and personal growth, fostering a supportive community where every journey is valued.
+  </p>
+</div>
+
         </div>
       </div>
 
       <div className="lastp">
-        <h1 className="last_h">Join Us in the Learning Revolution</h1>
+        <h1 className="last_h">Join Us</h1>
         <p className="last_p">
-          We invite you to join us on this exciting journey of discovery and
-          growth. Whether you're a student, professional, or lifelong learner,{" "}
-          <span className="span1">[Himalayan Sikshya]</span> is here to support
-          you on your path to success.
-        </p>
-        <p className="last_p">
-          Thank you for choosing Himalayan Sikchya. Let's learn, grow, and
-          innovate together!
-        </p>
-        <p className="last_p">
-          Feel free to customize this content to better fit the unique aspects
-          and values of your e-learning platform.
+         
+
+We invite you to join us on this transformative journey towards mental well-being and resilience.  
+Whether you're facing anxiety, stress, or seeking overall mental balance, Mentify is here to support you every step of the way.   <br />
+Our platform offers personalized tools, a supportive community, and access to professional therapists to help you manage your mental health effectively.   <br />
+Discover a new sense of control and optimism with Mentify. <br />  
+Join us today and take the first step towards a healthier, happier you. <br />
         </p>
       </div>
 
