@@ -16,11 +16,10 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
-import { useContext } from "react";
-import { AppContext } from "../context/context.jsx";
+
 import axios from "axios";
 const Login = () => {
-  const {setUser} = useContext(AppContext)
+
     const navigate = useNavigate();
     const handleGoBack = () => {
       navigate(-1);
@@ -71,7 +70,6 @@ const Login = () => {
             );
             
             const data = response.data.message;
-            setUser(data)
             
             clearForm(); // Clear the form after successful login
             navigate("/");

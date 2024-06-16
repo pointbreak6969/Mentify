@@ -28,7 +28,7 @@ const Stories = () => {
             return(
             <div className="cards" key={index}>
                 <div className="coma">
-                <i class="fa-solid fa-quote-left"></i>
+                <i className="fa-solid fa-quote-left"></i>
                 </div>
                 <div className="story">
                  "{item.paragraph}"

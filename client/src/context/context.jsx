@@ -1,14 +1,23 @@
-import React, {createContext, useState} from 'react'
+import React, { createContext, useState, useEffect } from "react";
+import getCookie from "../utils/getCookie";
+
 
 const AppContext = createContext();
 
-const AppProvider = ({children}) => {
-  const [user, setUser] = useState(null)
-  return (
-  <AppContext.Provider value={{user, setUser}}  >
-    {children}
-  </AppContext.Provider>
-  )
-}
+const AppProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const accessToken = getCookie("accessToken") || null;
+  const refreshToken = getCookie("refreshToken") || null;
+  console.log(accessToken, refreshToken);
 
-export {AppProvider, AppContext}
+
+  
+
+  return (
+    <AppContext.Provider value={{ user, setUser }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+export { AppProvider, AppContext };

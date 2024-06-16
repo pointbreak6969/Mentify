@@ -46,6 +46,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const options = {
     httpOnly: true,
     secure: true,
+    sameSite: "none",
   };
   return res
     .status(201)
@@ -134,6 +135,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const options = {
     httpOnly: true,
     secure: true,
+    sameSite: "none",
   };
 
   return res
@@ -168,6 +170,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   const options = {
     httpOnly: true,
     secure: true,
+    sameSite: "none",
   };
   return res
     .status(200)
@@ -175,5 +178,13 @@ const logoutUser = asyncHandler(async (req, res) => {
     .clearCookie("refreshToken", options)
     .json(new ApiResponse(200, {}, "User Logged Out"));
 });
+const getUserData = asyncHandler(async (req, res)=>{
+  const user = await User.findById(req.user?._id).select("-password -refreshToken");
+  if (!user) {
+    throw new ApiError(404, "User does not exist");
+  }
+  res.status(200).json(new ApiResponse(200, "User data", user));
+})
 
-export { registerUser, logoutUser, loginUser };
+
+export { registerUser, logoutUser, loginUser, getUserData };

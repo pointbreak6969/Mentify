@@ -6,6 +6,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { Post } from "../models/post.model.js";
 import { User } from "../models/user.model.js";
 
+
 const addComment = asyncHandler(async (req, res) => {
   const { postId } = req.body;
   if (!isValidObjectId(postId)) throw new ApiError(400, "Invalid post id");
@@ -24,4 +25,41 @@ const addComment = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, "Comment added", comment));
 });
 
-export { addComment };
+const getAllPostComments = asyncHandler(async (req, res) => {
+const { postId } = req.body;
+
+if (!isValidObjectId(postId)) throw new ApiError(400, "Invalid post id");
+const post = await Post.findById(postId, {_id: 1});
+if (!post) throw new ApiError(404, "Post not found");
+try {
+  const pipeline = Comment.aggregate([
+    {
+      $match: {
+        post: new mongoose.Types.ObjectId(postId)
+      }
+    },
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'owner',
+        foreignField: '_id',
+        as: 'owner'
+      }
+    },
+    {
+      $unwind: '$owner'
+    },
+    {
+      $project: {
+        content: 1,
+      }
+    }
+  ]).then((comments) => {
+    return res.status(200).json(new ApiResponse(200, "All comments", comments))
+  })
+  if (!pipeline) throw new ApiError(500, "Internal server error")
+} catch (error) {
+  console.log("There was error while fetching comments", error);
+}
+})
+export { addComment, getAllPostComments };
