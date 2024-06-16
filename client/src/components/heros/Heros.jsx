@@ -7,6 +7,7 @@ import smartphone4 from"../../assets/smart-phone4.png"
 import left from '../../assets/left.png'
 import right from '../../assets/right.png'
 import Middle from '../../assets/Middle.png'
+
 const Heros = () => {
   return (
     <>

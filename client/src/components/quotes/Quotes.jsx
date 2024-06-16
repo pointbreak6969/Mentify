@@ -25,8 +25,8 @@ const Quotes = () => {
         Quote.map((item,index)=>{
         return(
             <div className="card" key={index}>
-                <div className="image">
-                  <img src={item.image} alt="" />
+                <div className="image" >
+                  <img src={item.image} alt=""/>
                 </div>
                 <div className="content">
                     <div className="heading">{item.heading}</div>

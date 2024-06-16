@@ -10,12 +10,12 @@ gap: 10px;
 .image{
     img{
 
-        width: 300px;
+        width: 450px;
     }
 }
 .content{
     .heading{
-       font-size: 22px;
+       font-size: 25px;
        font-weight: bold;
     }
     .paragraph{
