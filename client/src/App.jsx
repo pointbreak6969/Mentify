@@ -10,8 +10,9 @@ import Posts from "./components/quotes/Posts/Posts";
 import About from "./pages/About";
 import Footer from "./components/footer/Footer";
 import Feedback from "./pages/Feedback";
-function App() {
 
+
+function App() { 
   return (
     <>
     <BrowserRouter>

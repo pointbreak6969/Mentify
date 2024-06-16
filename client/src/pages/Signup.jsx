@@ -19,7 +19,7 @@ import Input from "@mui/material/Input";
 import axios from "axios";
 
 const Signup = () => {
-  const {user} = useContext(AppContext);
+  const {setUser} = useContext(AppContext);
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
@@ -76,6 +76,7 @@ const Signup = () => {
           localStorage.setItem("username", fullname);
           localStorage.setItem("email", email);
           localStorage.setItem("age", age);
+          setUser(response.data.message)
           clearForm(); // Clear the form after successful registration
           navigate("/");
         } catch (error) {

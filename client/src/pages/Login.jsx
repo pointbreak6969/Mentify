@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/login.css"
 import "../styles/register.css";
@@ -16,10 +16,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
-
+import isLoggedIn from "../../../server/src/utils/isLoggedIn.js";
 import axios from "axios";
+import { AppContext } from "../context/context.jsx";
 const Login = () => {
-
+  const {setUser} = useContext(AppContext)
     const navigate = useNavigate();
     const handleGoBack = () => {
       navigate(-1);
@@ -61,7 +62,7 @@ const Login = () => {
         };
         if (IsFormValid()){
           try {
-            const response = await axios.post(
+             await axios.post(
               "http://localhost:5000/api/v1/user/login",
               loginData,
               {
@@ -72,9 +73,11 @@ const Login = () => {
               withCredentials: true,
             }); 
             const {fullname, email, age, } = data.data.data;
+            console.log(data.data.data)
             localStorage.setItem("username", fullname);
             localStorage.setItem("email", email)
             localStorage.setItem("age", age)
+            setUser(data.data.data)
             clearForm(); // Clear the form after successful login
             navigate("/");
           } catch (error) {
