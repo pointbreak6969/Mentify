@@ -17,52 +17,60 @@ const Library = () => {
       image: book1,
       title: "The Propphet",
       author: "kahlilgibram",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+      link:'https://www.kahlilgibran.com/images/The%20Prophet%20Ebook%20by%20Kahlil%20Gibran.pdf'
     },
     {
       image: book2,
       title: "The Light We",
       author: "Michelle",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+      link:"https://s1.papyruspub.com/files/demos/products/ebooks/novels/inspiring/Preview-The-Light-We-Carry-by-Michelle-Obama.pdf"
     },
     {
       image: book3,
       title: "Atomic habits",
       author: "James Clear",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+      link:"https://dn790007.ca.archive.org/0/items/atomic-habits-pdfdrive/Atomic%20habits%20%28%20PDFDrive%20%29.pdf"
     },
     {
       image: book4,
       title: "Works Simply",
       author: "Carson Tate",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+            link:"https://s1.papyruspub.com/files/demos/products/ebooks/novels/inspiring/Preview-The-Light-We-Carry-by-Michelle-Obama.pdf"
     },
     {
       image: book1,
       title: "Loving Bravely",
       author: "Alexis Hambrook",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+            link:"https://s1.papyruspub.com/files/demos/products/ebooks/novels/inspiring/Preview-The-Light-We-Carry-by-Michelle-Obama.pdf"
     },
     
     {
       image: book3,
       title: "Mindset",
       author: "Carol S. Dweck",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+            link:"https://s1.papyruspub.com/files/demos/products/ebooks/novels/inspiring/Preview-The-Light-We-Carry-by-Michelle-Obama.pdf"
     },
     
     {
       image: book2,
       title: "The Power Of Now",
       author: "Ekhart Tolle",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+            link:"https://s1.papyruspub.com/files/demos/products/ebooks/novels/inspiring/Preview-The-Light-We-Carry-by-Michelle-Obama.pdf"
     },
     
     {
       image: book4,
       title: "Art Of Happiness",
       author: "Dalai Lama",
-      buttonMsg: "Read More"
+      buttonMsg: "Read More",
+      link:""
     }
   ];
 
@@ -135,6 +143,7 @@ buttonMsg: "Click to watch"
             title={item.title}
             author={item.author}
             buttonMsg={item.buttonMsg}
+            link={item.link}
           />
         ))}
       </div>

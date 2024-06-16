@@ -107,7 +107,7 @@ const Posts = () => {
       </div>
 
       {/* Create New Post Section */}
-      <div className="relative">
+      <div className="relative top-0">
         <div className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center ${isCreatePostVisible ? 'slide-in' : 'slide-out'}`}>
           <div className="bg-white p-6 rounded shadow-md max-w-lg w-full">
             <button
