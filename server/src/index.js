@@ -13,3 +13,5 @@ connectDB()
   .catch((e) => {
     console.log("MongoDb connection error", e);
   });
+
+export {server};
