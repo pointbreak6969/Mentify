@@ -1,0 +1,226 @@
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4rem;
+}
+
+.wrapper {
+    flex: 40%;
+
+}
+
+.about_img {
+    max-width: 100%;
+    /* Make the image responsive by setting its maximum width to 100% */
+    height: auto;
+    /* Ensure the image height adjusts proportionally */
+    display: block;
+}
+
+.top_header {
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.85rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    padding-top: 60px;
+}
+
+.top_para {
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.35rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 30px;
+
+}
+
+.container1 {
+    margin-top: 1rem;
+    background-color: #FFC8C8;
+    padding: 2rem 4rem;
+}
+
+.heading2 {
+    text-align: center;
+    font-family: emoji;
+    font-size: 2.50rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.para2 {
+    text-align: center;
+    font-family: math;
+    font-size: 1.35rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 4rem;
+}
+
+.heading3 {
+    margin-top: 15px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.35rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.contain {
+    padding: 0 6rem;
+}
+
+.sub-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    gap: 30px;
+}
+
+
+.wraps {
+    flex: 40%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.image_about {
+    max-width: 100%;
+    /* Make the image responsive by setting its maximum width to 100% */
+    height: auto;
+    /* Ensure the image height adjusts proportionally */
+    display: block;
+}
+
+.heading4 {
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 650;
+    line-height: normal;
+    text-decoration: underline;
+
+}
+
+.para3 {
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 10px;
+}
+
+.para4 {
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 30px;
+}
+
+.main_heading {
+    text-align: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 2.35rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.main_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 24px 6rem;
+    gap: 20px;
+}
+
+.box {
+    flex: 1;
+    width: 18.125rem;
+    box-shadow: 0px 0px 8.2px 4px rgba(0, 0, 0, 0.25);
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.main1 {
+    background: #FFC8C8;
+}
+
+.mh1 {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.35rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.mp1 {
+    color: #442A2A;
+    font-family: Inter;
+    font-size: 1.05rem;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    line-height: normal;
+}
+
+.main2 {
+    background: #FFC8C8;
+}
+
+.main3 {
+
+    background: #FFC8C8;
+}
+
+.main4 {
+    background: #FFC8C8;
+}
+
+@media screen and (max-width: 959px) {
+    .box {
+        flex: 1 1 300px;
+    }
+}
+
+.lastp{
+    padding: 2rem 4rem;
+}
+.last_h {
+    color: #000;
+    font-family: Inter;
+    font-size: 2.35rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.last_p {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.span1{
+    font-weight: 800;
+    color: blue;
+}

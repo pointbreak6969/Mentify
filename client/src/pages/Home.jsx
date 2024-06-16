@@ -9,7 +9,6 @@ import Stories from "../components/quotes/Stories";
 const Home = () => {
   return (
     <div>
-    <Navbar/>
     <Heros/>
     <div className="quotes" style={{backgroundColor:"#D0ECF5", display:"flex",gap:"70px",
       flexDirection:"column"

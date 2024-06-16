@@ -1,0 +1,10 @@
+.slide-in {
+    transform: translateY(0%);
+    transition: transform 0.3s ease;
+  }
+  
+  .slide-out {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+  

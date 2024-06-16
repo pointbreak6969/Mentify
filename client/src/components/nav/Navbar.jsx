@@ -4,7 +4,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import "../../styles/navbar.css";
 import useClickAway from "../../utils/useClickAway";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../../context/context";
 import { useContext } from "react";
 import axios from "axios";
@@ -76,11 +76,11 @@ const Navbar = () => {
                   <li className="border-b-1 p-1 ">Login</li>
                 </div>
                 <div className="list-none">
-                  <li className="border-b-1 p-1 ">Home</li>
-                  <li className="border-b-1 p-1 ">Books</li>
-                  <li className="border-b-1 p-1 ">Professional Connection</li>
-                  <li className="border-b-1 p-1 ">Conversations</li>
-                  <li className="border-b-1 p-1 ">Contact Us</li>
+                  <Link to={"/"}><li className="border-b-1 p-1 ">Home</li></Link>
+                  <Link to={"/library"}><li className="border-b-1 p-1 ">Books</li></Link>
+                  <Link to={"/profesionals"}><li className="border-b-1 p-1 ">Professional Connection</li></Link>
+                  <Link to={"/conversation"}><li className="border-b-1 p-1 ">Conversations</li></Link>
+                  <Link to={"/contact"}><li className="border-b-1 p-1 ">Contact Us</li></Link>
                 </div>
               </div>
             </div>
@@ -92,21 +92,21 @@ const Navbar = () => {
           <img src={logo} alt="" className="w-20 xl:w-24 cursor-pointer " />
         </div>
         <div className="col-span-8 list-none flex justify-center items-center  ">
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">
-            Home
-          </li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer ">
+            Home 
+          </li></Link>
+          <Link to={"/library"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
             Library
-          </li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+          </li></Link>
+          <Link to={"/professional"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
             Professionals
-          </li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
+          </li></Link>
+          <Link to={"/posts"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline  cursor-pointer">
             Conversations
-          </li>
-          <li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
-            Contact Us
-          </li>
+          </li></Link>
+          <Link to={"/"}><li className="px-2 text-md xl:px-4 xl:text-xl hover:underline cursor-pointer ">
+            Chat With AI
+          </li></Link>
         </div>
         {/* If user is logged in, show the logout button */}
         {user ? (
