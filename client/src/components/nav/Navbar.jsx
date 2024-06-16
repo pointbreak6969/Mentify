@@ -87,7 +87,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="mobile-desktop hidden md:grid md:grid-cols-12 md:p-4 md:bg-cyan-700 md:text-white">
+      <div className="mobile-desktop hidden md:grid md:grid-cols-12 md:p-4 md:bg-cyan-700 md:text-white z-[100]">
         <div className="col-span-2 flex items-center justify-center">
           <img src={logo} alt="" className="w-20 xl:w-24 cursor-pointer " />
         </div>
