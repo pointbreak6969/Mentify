@@ -4,7 +4,6 @@ import about1 from "../assets/about1.png";
 import '../styles/About.css'
 
 function About() {
-  {console.log("aaye")}
     return (
     <div>
         

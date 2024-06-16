@@ -20,6 +20,9 @@ const Navbar = () => {
         await axios.post("http://localhost:5000/api/v1/user/logout",{}, {
           withCredentials: true,
         })
+        localStorage.removeItem("username");
+        localStorage.removeItem("age")
+        localStorage.removeItem("email")
         setUser(null)
       } catch (error) {
         console.log("error while logging out", error)
@@ -58,7 +61,7 @@ const Navbar = () => {
               ref={ref}
               className={
                 activeSidebar
-                  ? " h-screen bg-white sidebar-dropdown flex gap-5   "
+                  ? " h-screen bg-white sidebar-dropdown flex gap-5 z-10  "
                   : "hidden"
               }
             >

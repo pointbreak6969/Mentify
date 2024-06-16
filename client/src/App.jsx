@@ -4,14 +4,11 @@ import {  Routes, Route, BrowserRouter } from "react-router-dom";
 import Library from "./pages/Library";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import { AppContext } from "./context/context";
-import { useContext } from "react";
 import Prof from "./pages/Prof";
-import Login from "./pages/Login"
-import Signup from "./pages/Signup";
+import Navbar from "./components/nav/Navbar";
 import Posts from "./components/quotes/Posts/Posts";
 import About from "./pages/About";
-import Footer from "./components/footer/Footer";
+
 function App() {
 
   return (
@@ -27,7 +24,6 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
     </Routes>
-    {/* <Footer/>     */}
    </BrowserRouter>
 
     </>

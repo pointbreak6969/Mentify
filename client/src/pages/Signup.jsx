@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import {  useState, useContext } from "react";
 import { AppContext } from "../context/context.jsx";
 import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/register.css";
@@ -19,7 +19,7 @@ import Input from "@mui/material/Input";
 import axios from "axios";
 
 const Signup = () => {
-  const {setUser, setToken} = useContext(AppContext);
+  const {user} = useContext(AppContext);
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
@@ -71,9 +71,11 @@ const Signup = () => {
               withCredentials: true,
             }
           );
-          
           const data = response.data.message;
-          console.log(data);
+          const {fullname, email, age } = data;
+          localStorage.setItem("username", fullname);
+          localStorage.setItem("email", email);
+          localStorage.setItem("age", age);
           clearForm(); // Clear the form after successful registration
           navigate("/");
         } catch (error) {

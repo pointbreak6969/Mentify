@@ -68,9 +68,13 @@ const Login = () => {
                 withCredentials: true,
               }
             );
-            
-            const data = response.data.message;
-            
+            const data = await axios.get("http://localhost:5000/api/v1/user/me", {
+              withCredentials: true,
+            }); 
+            const {fullname, email, age, } = data.data.data;
+            localStorage.setItem("username", fullname);
+            localStorage.setItem("email", email)
+            localStorage.setItem("age", age)
             clearForm(); // Clear the form after successful login
             navigate("/");
           } catch (error) {
