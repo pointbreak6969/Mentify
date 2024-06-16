@@ -3,7 +3,7 @@ import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/login.css"
 import "../styles/register.css";
 import logo from "../assets/logo.png"
-import student from "../assets/student.png"
+import student from "../assets/login.png"
 import { Link, useNavigate  } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -19,6 +19,7 @@ import Input from "@mui/material/Input";
 import isLoggedIn from "../../../server/src/utils/isLoggedIn.js";
 import axios from "axios";
 import { AppContext } from "../context/context.jsx";
+
 const Login = () => {
   const {setUser} = useContext(AppContext)
     const navigate = useNavigate();
@@ -100,8 +101,8 @@ const Login = () => {
                 <img src={logo} alt="" className="cursor-pointer" />
               </div>
               <div className="register-left-text">
-                <h3>Learn From World's Best Instructors 🌍 Around The World.</h3>
-              </div>
+              <h3>Find Your Light,
+              One At A Time.</h3></div>
               <div className="register-left-img">
                 <img src={student} alt="" />
               </div>

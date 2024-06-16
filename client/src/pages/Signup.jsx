@@ -3,7 +3,7 @@ import { AppContext } from "../context/context.jsx";
 import { validateEmail } from "../utils/validateEmail.js";
 import "../styles/register.css";
 import logo from "../assets/logo.png";
-import student from "../assets/student.png";
+import student from "../assets/login.png"
 import { useNavigate, Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -109,7 +109,8 @@ const Signup = () => {
               <img src={logo} alt="" className="cursor-pointer" />
             </div>
             <div className="register-left-text">
-              <h3>Learn From World's Best Instructors 🌍 Around The World.</h3>
+              <h3>Find Your Light,
+              One At A Time.</h3>
             </div>
             <div className="register-left-img">
               <img src={student} alt="" />

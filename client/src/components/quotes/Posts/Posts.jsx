@@ -10,40 +10,22 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
 
-
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/api/v1/post/getAllPost",
-          {
-            withCredentials: true,
-          }
-        );
-        const data = response.data;
-        setPosts(data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
     fetchData();
   }, []);
 
-  async function fetchPostComment(postId) {
+  const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/comment/getAllPostComments/${postId}`,
-        {
-          withCredentials: true,
-        }
+        "http://localhost:5000/api/v1/post/getAllPost",
+        { withCredentials: true }
       );
       const data = response.data.data;
-      setPostComments((prevComments) => ({ ...prevComments, [postId]: data }));
+      setPosts(data);
     } catch (error) {
       console.log(error);
     }
-  }
-
+  };
 
   const convertTime = (time) => {
     const createdAt = new Date(time);
@@ -66,16 +48,49 @@ const Posts = () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/v1/post/uploadPost",
-        {
-          content: postContent,
-        },
-        {
-          withCredentials: true,
-        }
+        { content: postContent },
+        { withCredentials: true }
       );
       setNewPost([...newPost, response.data.data]);
       setPostContent("");
       setIsCreatePostVisible(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLikeClick = async (postId) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/v1/post/likePost/${postId}`,
+        {},
+        { withCredentials: true }
+      );
+      // Update the post in state with updated likes
+      const updatedPosts = posts.map((post) =>
+        post._id === postId ? { ...post, likes: response.data.likes } : post
+      );
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCommentSubmit = async (postId) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/v1/comment/addComment/${postId}`,
+        { comment },
+        { withCredentials: true }
+      );
+      // Update the post in state with updated comments
+      const updatedPosts = posts.map((post) =>
+        post._id === postId
+          ? { ...post, comments: [...post.comments, response.data.comment] }
+          : post
+      );
+      setPosts(updatedPosts);
+      setComment("");
     } catch (error) {
       console.log(error);
     }
@@ -101,8 +116,7 @@ const Posts = () => {
             className="bg-[#418CA6] text-white py-2 px-4 rounded flex gap-2 items-center"
             onClick={handleCreatePostClick}
           >
-            Create a New Post
-            <i className="fa-solid fa-pen-to-square my-1"></i>
+            Create a New Post <i className="fa-solid fa-pen-to-square my-1"></i>
           </button>
         </div>
       </div>
@@ -116,8 +130,8 @@ const Posts = () => {
               key={post._id}
               className="bg-white p-4 rounded shadow mb-4 flex items-start justify-between"
             >
-              <div className="flex-1 ">
-                <div className="flex item-centre gap-5">
+              <div className="flex-1">
+                <div className="flex items-center gap-5">
                   <img src={image} alt="Profile" />
                   <div className="text-gray-500 text-sm mb-2">
                     {convertTime(post.createdAt)}
@@ -125,7 +139,35 @@ const Posts = () => {
                 </div>
                 <p className="mb-2 font-bold text-xl">{post.content}</p>
 
-                <form onSubmit={handlePostSubmission} className="mt-2">
+                <div className="flex items-center mb-2">
+                  <button
+                    onClick={() => handleLikeClick(post._id)}
+                    className="bg-gray-200 text-gray-600 px-3 py-1 rounded mr-2 flex items-center"
+                  >
+                    <i className="fas fa-thumbs-up mr-2"></i> Like ({post.likes})
+                  </button>
+                  <button className="bg-gray-200 text-gray-600 px-3 py-1 rounded">
+                    <i className="fas fa-pen-square mr-2"></i> Comment (
+                    {post.comments.length})
+                  </button>
+                </div>
+                <ul className="list-disc list-inside">
+                  {post.comments.map((comment) => (
+                    <li
+                      key={comment._id}
+                      className="text-gray-600 mb-1"
+                    >
+                      {comment.content}
+                    </li>
+                  ))}
+                </ul>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleCommentSubmit(post._id);
+                  }}
+                  className="mt-2"
+                >
                   <input
                     type="text"
                     value={comment}
@@ -143,11 +185,7 @@ const Posts = () => {
                 </form>
               </div>
               {post.image && (
-                <img
-                  src={post.image.url}
-                  alt="Post"
-                  className="w-24 h-24 ml-4"
-                />
+                <img src={post.image.url} alt="Post" className="w-24 h-24 ml-4" />
               )}
             </div>
           ))}

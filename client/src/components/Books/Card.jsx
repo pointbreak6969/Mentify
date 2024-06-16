@@ -24,7 +24,7 @@ const Card = ({ image, title, author, price, time, buttonMsg, expanded, content,
           )}
         </div>
         <div className="px-6 pt-4 pb-2">
-          <a href={link}
+          <a href={link} target='blank'
             style={{
               backgroundColor: '#1884A8',
               color: 'white',
