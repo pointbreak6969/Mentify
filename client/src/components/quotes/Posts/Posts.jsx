@@ -108,7 +108,8 @@ const Posts = () => {
     <>
       {/* Button to toggle Create New Post visibility */}
       <div className="bg-gray-100 flex items-center justify-center h-0 my-12">
-        <div className="flex w-full max-w-screen-lg px-4 gap-20">
+        <div className="flex w-full max-w-screen-lg px-4 gap-20"> 
+          
           <button className="bg-[#418CA6] text-white py-2 px-4 rounded flex gap-2 justify-center items-center">
             Your Posts <i className="fa-brands fa-readme my-2"></i>
           </button>
@@ -139,28 +140,8 @@ const Posts = () => {
                 </div>
                 <p className="mb-2 font-bold text-xl">{post.content}</p>
 
-                <div className="flex items-center mb-2">
-                  <button
-                    onClick={() => handleLikeClick(post._id)}
-                    className="bg-gray-200 text-gray-600 px-3 py-1 rounded mr-2 flex items-center"
-                  >
-                    <i className="fas fa-thumbs-up mr-2"></i> Like ({post.likes})
-                  </button>
-                  <button className="bg-gray-200 text-gray-600 px-3 py-1 rounded">
-                    <i className="fas fa-pen-square mr-2"></i> Comment (
-                    {post.comments.length})
-                  </button>
-                </div>
-                <ul className="list-disc list-inside">
-                  {post.comments.map((comment) => (
-                    <li
-                      key={comment._id}
-                      className="text-gray-600 mb-1"
-                    >
-                      {comment.content}
-                    </li>
-                  ))}
-                </ul>
+                
+          
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();

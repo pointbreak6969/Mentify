@@ -38,12 +38,12 @@ const uploadPost = asyncHandler(async (req, res) => {
     throw new ApiError(500, "Internal server error");
   }
 });
-const getAllPost = asyncHandler(async (req, res)=>{
-const posts = await Post.find({});
-if (!posts){
-  throw new ApiError(404, "No post found")
-}
-return res.status(200).json(new ApiResponse(200, "All posts", posts))
-})
+const getAllPost = asyncHandler(async (req, res) => {
+  const posts = await Post.find({}).sort({ createdAt: -1 });
+  if (!posts) {
+    throw new ApiError(404, "No post found");
+  }
+  return res.status(200).json(new ApiResponse(200, "All posts", posts));
+});
 
 export { uploadPost, getAllPost };
